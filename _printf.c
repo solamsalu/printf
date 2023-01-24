@@ -10,21 +10,42 @@
  **/
 int _printf(const char *format, ...)
 {
-	int size;
+	int i = 0, j = 0;
+	int (*f)(va_list);
 	va_list args;
 
-	if (format == NULL)
-		return (-1);
-
-	size = _strlen(format);
-	if (size <= 0)
-		return (0);
-
 	va_start(args, format);
-	size = handler(format, args);
-
-	_putchar(-1);
+	if (format == NULL || !format[i + 1])
+		return (-1);
+	while (format[i])
+	{
+		if (format[i] == '%')
+		{
+			if (format[i + 1])
+			{
+				if (format[i + 1] != 'c' && format[i + 1] != 's'
+				    && format[i + 1] != '%' && format[i + 1] != 'd'
+				    && format[i + 1] != 'i')
+				{
+					j += _putchar(format[i]);
+					j += _putchar(format[i + 1]);
+					i++;
+				}
+				else
+				{
+					f = get_func(&format[i + 1]);
+					j += f(args);
+					i++;
+				}
+			}
+		}
+		else
+		{
+			_putchar(format[i]);
+			j++;
+		}
+		i++;
+	}
 	va_end(args);
-
-	return (size);
+	return (j);
 }
