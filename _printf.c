@@ -1,5 +1,5 @@
 #include "main.h"
-<<<<<<< HEAD
+
 void print_buffer(char buffer[], int *buff_ind);
 
 /**
@@ -91,11 +91,9 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			charPrinted++;
 			continue;
->>>>>>> 485877da3468c23e81acc6c0f75221501b881153
 		}
 		if (format[i + 1] == '%')
 		{
-<<<<<<< HEAD
 			print_buffer(buffer, &buff_ind);
 			flags = get_flags(format, &i);
 			width = get_width(format, &i, list);
@@ -148,5 +146,4 @@ void print_buffer(char buffer[], int *buff_ind)
 	}
 	va_end(arg);
 	return (charPrinted);
->>>>>>> 485877da3468c23e81acc6c0f75221501b881153
 }
