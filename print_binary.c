@@ -1,19 +1,16 @@
 #include "main.h"
 
 /**
- * print_binary - Print a number in base 2
- * @list: Number to print in base 2
- *
- * Return: Length of the numbers in binary
- **/
-int print_binary(va_list list)
+ * print_binary - function that prints the binary representation of a number
+ * @n: number to be printed in binary
+ * @printed: hold the number of characters printed
+ */
+void print_binary(unsigned int n, unsigned int *printed)
 {
-	char *p_buff;
-	int size;
-
-	p_buff = itoa(va_arg(list, unsigned int), 2);
-
-	size = print(p_buff);
-
-	return (size);
+	if (n > 1)
+	{
+		*printed += 1;
+		print_binary(n >> 1, printed);
+	}
+	_putchar((n & 1) + '0');
 }
