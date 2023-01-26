@@ -5,18 +5,11 @@
  * @format: Formatted string in which to print the arguments.
  * @i: List of arguments to be printed.
  * @list: list of arguments.
-<<<<<<< HEAD
  * Return: width.
  */
 
 int get_width(const char *format, int *i, va_list list)
 
-=======
- *	
- * Return: width.
- */
-int get_width(const char *format, int *i, va_list list)
->>>>>>> 6d91168fa63df762470c90c5aff775d26f742778
 {
 	int curr_i;
 	int width = 0;
@@ -37,12 +30,7 @@ int get_width(const char *format, int *i, va_list list)
 		else
 			break;
 	}
-<<<<<<< HEAD
 	*i = curr_i - 1;
-=======
-
 	*i = curr_i - 1;
-
->>>>>>> 6d91168fa63df762470c90c5aff775d26f742778
 	return (width);
 }
